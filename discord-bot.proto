@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package discordbot;
+
+// The greeting service definition.
+service DiscordBotService {
+  // Sends a message to a Discord user
+  rpc SendMessageToUser (UserMessage) returns (SendMessageResponse) {}
+}
+
+// The request message containing the user ID and the message text.
+message UserMessage {
+  string userId = 1;
+  string messageText = 2;
+}
+
+// The response message containing the result of the send operation.
+message SendMessageResponse {
+  bool success = 1;
+  string responseMessage = 2;
+}
