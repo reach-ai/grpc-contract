@@ -6,11 +6,18 @@ package discordbot;
 service DiscordBotService {
   // Sends a message to a Discord user
   rpc SendMessageToUser (UserMessage) returns (SendMessageResponse) {}
+  // Sends a message to a Discord channel
+  rpc SendMessageToChannel (ChannelMessage) returns (SendMessageResponse) {}
 }
 
 // The request message containing the user ID and the message text.
 message UserMessage {
   string userId = 1;
+  string messageText = 2;
+}
+
+message ChannelMessage {
+  string channelId = 1;
   string messageText = 2;
 }
 
